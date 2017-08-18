@@ -25,7 +25,7 @@ gem 'puma', '~> 3.7'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 # Use Faraday to wrap HTTP functions for API calls
-gem 'faraday'
+gem 'faraday_middleware', '>= 0.9.1'
 # Use Faraday caching middleware to keep HTTP endpoints fresh for one hour
 gem 'faraday-http-cache'
 
