@@ -26,6 +26,8 @@ gem 'puma', '~> 3.7'
 gem 'rack-cors'
 # Use Faraday to wrap HTTP functions for API calls
 gem 'faraday'
+# Use Faraday caching middleware to keep HTTP endpoints fresh for one hour
+gem 'faraday-http-cache'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
