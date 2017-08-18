@@ -1,6 +1,6 @@
-class Forecast < ApplicationRecord
-
-    def self.get_forecast(zipcode)
+class ForecastService
+    
+    def get_forecast(zipcode)
         cache_key = zipcode
         apikey = ENV['WUNDERGROUND_API_KEY']
         api_url = "http://api.wunderground.com/api/#{apikey}/forecast/q/#{cache_key}.json"
@@ -13,7 +13,8 @@ class Forecast < ApplicationRecord
         }
     end
     
-    def self.parse_response
+    def parse_response
         JSON.parse(self.response)
     end 
+    
 end 
