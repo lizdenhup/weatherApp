@@ -8,15 +8,17 @@ class ForecastService
     #not caching as desired - logger says uncacheable. some setting is wrong 
     def get_forecast(zipcode)
         apikey = ENV['WUNDERGROUND_API_KEY']
-        client = Faraday.new('http://api.wunderground.com/api/') do |builder|
+        client = Faraday.new('http://api.wunderground.com') do |builder|
             builder.use :http_cache, store: Rails.cache, logger: ActiveSupport::Logger.new(STDOUT)
+            builder.response :json, :content_type => /\bjson$/
             builder.adapter Faraday.default_adapter
         end
 
         5.times do |index|
             started = Time.now
             puts "Request ##{index + 1}"
-            response = client.get('#{apikey}/forecast/q/#{zipcode}')
+            byebug 
+            response = client.get("/api/#{apikey}/forecast/q/#{zipcode}.json")
             finished = Time.now
             remaining = response.headers['X-RateLimit-Remaining']
             limit = response.headers['X-RateLimit-Limit']

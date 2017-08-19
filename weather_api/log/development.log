@@ -830,3 +830,39 @@ Processing by Api::V1::ForecastsController#search as */*
 Completed 200 OK in 2378ms (Views: 0.2ms)
 
 
+Started GET "/api/v1/search?query=60615" for 127.0.0.1 at 2017-08-18 21:26:02 -0500
+Processing by Api::V1::ForecastsController#search as */*
+  Parameters: {"query"=>"60615"}
+Completed 200 OK in 2507ms (Views: 0.4ms)
+
+
+Started GET "/api/v1/search?query=60615" for 127.0.0.1 at 2017-08-18 21:26:26 -0500
+Processing by Api::V1::ForecastsController#search as */*
+  Parameters: {"query"=>"60615"}
+Completed 200 OK in 2676ms (Views: 0.2ms)
+
+
+Started GET "/api/v1/search?query=60615" for 127.0.0.1 at 2017-08-18 21:28:41 -0500
+Processing by Api::V1::ForecastsController#search as */*
+  Parameters: {"query"=>"60615"}
+Completed 200 OK in 1846ms (Views: 0.3ms)
+
+
+Started GET "/api/v1/search?query=60615" for 127.0.0.1 at 2017-08-18 21:30:04 -0500
+Processing by Api::V1::ForecastsController#search as */*
+  Parameters: {"query"=>"60615"}
+Completed 200 OK in 2441ms (Views: 0.3ms)
+
+
+Started GET "/api/v1/search?query=60615" for 127.0.0.1 at 2017-08-18 21:32:38 -0500
+Processing by Api::V1::ForecastsController#search as */*
+  Parameters: {"query"=>"60615"}
+Started GET "/api/v1/search?query=60615" for 127.0.0.1 at 2017-08-18 21:33:37 -0500
+Processing by Api::V1::ForecastsController#search as */*
+  Parameters: {"query"=>"60615"}
+Started GET "/api/v1/search?query=60615" for 127.0.0.1 at 2017-08-18 21:38:03 -0500
+Processing by Api::V1::ForecastsController#search as */*
+  Parameters: {"query"=>"60615"}
+Started GET "/api/v1/search?query=60615" for 127.0.0.1 at 2017-08-18 21:39:29 -0500
+Processing by Api::V1::ForecastsController#search as */*
+  Parameters: {"query"=>"60615"}
