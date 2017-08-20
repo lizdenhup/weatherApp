@@ -866,3 +866,63 @@ Processing by Api::V1::ForecastsController#search as */*
 Started GET "/api/v1/search?query=60615" for 127.0.0.1 at 2017-08-18 21:39:29 -0500
 Processing by Api::V1::ForecastsController#search as */*
   Parameters: {"query"=>"60615"}
+Started GET "/api/v1/search?query=60615" for 127.0.0.1 at 2017-08-18 21:41:41 -0500
+Processing by Api::V1::ForecastsController#search as */*
+  Parameters: {"query"=>"60615"}
+Completed 200 OK in 1013ms (Views: 0.2ms)
+
+
+Started GET "/api/v1/search?query=60615" for 127.0.0.1 at 2017-08-18 21:43:34 -0500
+Processing by Api::V1::ForecastsController#search as */*
+  Parameters: {"query"=>"60615"}
+Completed 200 OK in 781ms (Views: 0.2ms)
+
+
+Started GET "/api/v1/search?query=60615" for 127.0.0.1 at 2017-08-19 19:18:56 -0500
+Processing by Api::V1::ForecastsController#search as */*
+  Parameters: {"query"=>"60615"}
+Completed 200 OK in 1253ms (Views: 0.3ms)
+
+
+Started GET "/api/v1/search?query=06460" for 127.0.0.1 at 2017-08-19 19:25:05 -0500
+Processing by Api::V1::ForecastsController#search as */*
+  Parameters: {"query"=>"06460"}
+Completed 204 No Content in 792ms
+
+
+Started GET "/api/v1/search?query=06460" for 127.0.0.1 at 2017-08-19 19:42:40 -0500
+Processing by Api::V1::ForecastsController#search as */*
+  Parameters: {"query"=>"06460"}
+Completed 500 Internal Server Error in 2ms
+
+
+  
+Faraday::Error (:cache_control is not registered on Faraday::Response):
+  
+app/services/forecast_service.rb:14:in `block in get_forecast'
+app/services/forecast_service.rb:11:in `get_forecast'
+app/controllers/api/v1/forecasts_controller.rb:4:in `search'
+Started GET "/api/v1/search?query=06460" for 127.0.0.1 at 2017-08-19 19:43:54 -0500
+Processing by Api::V1::ForecastsController#search as */*
+  Parameters: {"query"=>"06460"}
+Completed 500 Internal Server Error in 2ms
+
+
+  
+Faraday::Error (:cache_control is not registered on Faraday::Response):
+  
+app/services/forecast_service.rb:15:in `block in get_forecast'
+app/services/forecast_service.rb:12:in `get_forecast'
+app/controllers/api/v1/forecasts_controller.rb:4:in `search'
+Started GET "/api/v1/search?query=06460" for 127.0.0.1 at 2017-08-19 19:48:47 -0500
+Processing by Api::V1::ForecastsController#search as */*
+  Parameters: {"query"=>"06460"}
+Completed 200 OK in 622ms (Views: 0.2ms)
+
+
+Started GET "/api/v1/search?query=60615" for 127.0.0.1 at 2017-08-19 19:51:16 -0500
+Processing by Api::V1::ForecastsController#search as */*
+  Parameters: {"query"=>"60615"}
+Completed 200 OK in 191ms (Views: 0.2ms)
+
+
