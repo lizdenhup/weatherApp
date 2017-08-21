@@ -7,7 +7,8 @@ constructor() {
     super();
 
     this.state = {
-        zipcode: ''
+        zipcode: '',
+        forecast: ''
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -24,6 +25,8 @@ handleSubmit(event) {
     //bind to search 
     alert('You submitted this!')
 }
+
+
 
 render() {
     return (
