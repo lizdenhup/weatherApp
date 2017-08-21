@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Foreact extends Component { 
+class Forecast extends Component { 
     render() {
         return (
             <div>
