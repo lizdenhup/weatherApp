@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import logo from './logo.svg';
 import './styles/spin.css';
+import fetch from 'isomorphic-fetch'
 
 class Search extends Component { 
 constructor() {
@@ -22,11 +23,19 @@ handleChange(event) {
 }
 
 handleSubmit(event) {
-    //bind to search 
-    alert('You submitted this!')
+    event.preventDefault(); 
+    debugger 
+    return fetch(`/api/v1/search?query=${this.state.zipcode}`, {
+    method: 'GET'
+    })
+    .then(resp => {
+        const forecastByZip = resp.body; 
+        this.setState({ forecast: forecastByZip })
+    })
+    .catch(err => {
+        throw new Error(err)
+    })
 }
-
-
 
 render() {
     return (
