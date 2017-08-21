@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
+import fetch from 'isomorphic-fetch'
 import logo from './logo.svg';
 import './styles/spin.css';
-import fetch from 'isomorphic-fetch'
 
 class Search extends Component { 
 constructor() {
@@ -11,8 +11,6 @@ constructor() {
         zipcode: '',
         forecast: '',
         isLoading: false, 
-        //resp is coming in, pare down what you want from the resp to use in disp with a guard statemtnt 
-        //ie resp[0] || ''
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -48,32 +46,31 @@ handleSubmit(event) {
 }
 
 render() { 
+    if (this.state.isLoading) {
     return (
-    <div className="uk-position-center">
-    {
-    this.state.isLoading ? 
-        <p>add logo here</p> 
-    :
-    <div>
-        <p>Enter a zip code to check that area's weather conditions</p>
-        <form onSubmit={this.handleSubmit}>
-        <input 
-          className="uk-input uk-form-width-medium"
-          type="text"
-          value = {this.state.zipcode}
-          name="zipcode"
-          onChange = {this.handleChange}
-          label="Zip code"
-          />
-          <button className="uk-button uk-button-default" type="submit">Check the weather</button>
-        </form>
+        <div className="uk-position-center">
+            <img src={logo} alt="React logo" className="App-logo" />
+        </div> 
+    )} else {
+        return (
+        <div className="uk-position-center">
+            <p>Enter a zip code to check that area's weather conditions</p>
+                <form onSubmit={this.handleSubmit}>
+                <input 
+                className="uk-input uk-form-width-medium"
+                type="text"
+                value = {this.state.zipcode}
+                name="zipcode"
+                onChange = {this.handleChange}
+                label="Zip code"
+                />
+                <button className="uk-button uk-button-default" type="submit">Check the weather</button>
+                </form>
             <div>
                 {this.state.zipcode}
             </div>
         </div> 
-    }
-    </div> 
-)}}
-
+    )}}
+}
 
 export default Search; 
