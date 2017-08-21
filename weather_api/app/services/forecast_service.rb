@@ -19,26 +19,27 @@ class Faraday::OverrideCacheControl < Faraday::Middleware
 end 
 
 class ForecastService
-    #not caching as desired - logger says uncacheable. some setting is wrong 
     def get_forecast(zipcode)
         apikey = ENV['WUNDERGROUND_API_KEY']
         @client = Faraday.new do |builder|
             builder.use :http_cache, store: Rails.cache, logger: ActiveSupport::Logger.new(STDOUT)
             builder.adapter Faraday.default_adapter
+            builder.response :json, :content_type => /\bjson$/
             builder.use Faraday::OverrideCacheControl, cache_control: 'public, max-age=3600'
         end
 
-        5.times do |index|
+        # 5.times do |index|
             started = Time.now
-            puts "Request ##{index + 1}"
+            # puts "Request ##{index + 1}"
             response = @client.get("http://api.wunderground.com/api/#{apikey}/forecast/q/#{zipcode}.json")
             finished = Time.now
-            remaining = response.headers['X-RateLimit-Remaining']
-            limit = response.headers['X-RateLimit-Limit']
+            # remaining = response.headers['X-RateLimit-Remaining']
+            # limit = response.headers['X-RateLimit-Limit']
         
             puts "  Request took #{(finished - started) * 1000} ms."
-            puts "  Rate limits: remaining #{remaining} requests of #{limit}."
-        end
+            # puts "  Rate limits: remaining #{remaining} requests of #{limit}."
+        # end
+        return response.body 
     end 
 end 
     
