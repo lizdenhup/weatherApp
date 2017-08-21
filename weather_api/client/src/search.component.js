@@ -9,7 +9,8 @@ constructor() {
 
     this.state = {
         zipcode: '',
-        forecast: ''
+        forecast: '',
+        isLoading: false, 
         //resp is coming in, pare down what you want from the resp to use in disp with a guard statemtnt 
         //ie resp[0] || ''
     }
@@ -26,6 +27,7 @@ handleChange(event) {
 
 handleSubmit(event) {
     event.preventDefault(); 
+    this.setState({ isLoading: true })
     return fetch(`/api/v1/search?query=${this.state.zipcode}`, {
     method: 'GET',
     headers: {
@@ -36,7 +38,8 @@ handleSubmit(event) {
     .then(resp => {
         const forecastByZip = resp; 
         this.setState({ 
-            forecast: forecastByZip
+            forecast: forecastByZip,
+            isLoading: false, 
         })
     })
     .catch(err => {
@@ -44,10 +47,14 @@ handleSubmit(event) {
     })
 }
 
-render() {
-
+render() { 
     return (
-        <div className="uk-position-center">
+    <div className="uk-position-center">
+    {
+    this.state.isLoading ? 
+        <p>add logo here</p> 
+    :
+    <div>
         <p>Enter a zip code to check that area's weather conditions</p>
         <form onSubmit={this.handleSubmit}>
         <input 
@@ -64,8 +71,9 @@ render() {
                 {this.state.zipcode}
             </div>
         </div> 
-        )
     }
-}
+    </div> 
+)}}
+
 
 export default Search; 
