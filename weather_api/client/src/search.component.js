@@ -70,16 +70,22 @@ render() {
             <img src={logo} alt="React logo" className="App-logo" />
         </div> 
     )} else if (this.state.forecast !== "" && this.state.zipcode !== "") {
-        var someVar = this.state.forecast.response.version 
-        var someForecast = this.state.forecast.forecast.txt_forecast.date
+        var forecastTime = this.state.forecast.forecast.txt_forecast.date
+        var forecastDay = this.state.forecast.forecast.txt_forecast.forecastday    
         return (
         <Modal
             isOpen={this.state.modalIsOpen}
             contentLabel="Modal"
             onRequestClose={this.closeModal}
             style={modalStyle}>
-            <p>{someVar}</p>
-            <p>Forecast: {someForecast} </p> 
+            <h2>Forecast for {this.state.zipcode}</h2>
+            <p>Current as of {forecastTime}</p> 
+            <p>{forecastDay[0]['title']}: {forecastDay[0]['fcttext']}</p>
+            <p>{forecastDay[1]['title']}: {forecastDay[1]['fcttext']}</p>
+            <p>{forecastDay[2]['title']}: {forecastDay[2]['fcttext']}</p>
+            <p>{forecastDay[3]['title']}: {forecastDay[3]['fcttext']}</p>
+            <p>{forecastDay[4]['title']}: {forecastDay[4]['fcttext']}</p>
+            <p>{forecastDay[5]['title']}: {forecastDay[5]['fcttext']}</p>
             <button type="button" className="uk-button uk-margin-top uk-margin-right uk-button-secondary uk-position-top-right" onClick={this.closeModal}>X</button>
         </Modal> 
         )
