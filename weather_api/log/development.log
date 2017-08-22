@@ -1220,3 +1220,63 @@ Processing by Api::V1::ForecastsController#search as JSON
 Completed 200 OK in 682ms (Views: 3.6ms)
 
 
+Started GET "/api/v1/search?query=60010" for 127.0.0.1 at 2017-08-21 18:27:33 -0500
+Processing by Api::V1::ForecastsController#search as JSON
+  Parameters: {"query"=>"60010"}
+Completed 200 OK in 12ms (Views: 9.0ms)
+
+
+Started GET "/api/v1/search?query=60615" for 127.0.0.1 at 2017-08-21 21:15:28 -0500
+Processing by Api::V1::ForecastsController#search as JSON
+  Parameters: {"query"=>"60615"}
+Completed 200 OK in 742ms (Views: 2.9ms)
+
+
+Started GET "/api/v1/search?query=60615" for 127.0.0.1 at 2017-08-21 21:18:48 -0500
+Processing by Api::V1::ForecastsController#search as JSON
+  Parameters: {"query"=>"60615"}
+Completed 200 OK in 11ms (Views: 9.1ms)
+
+
+Started GET "/api/v1/search?query=60615" for 127.0.0.1 at 2017-08-21 21:19:26 -0500
+Processing by Api::V1::ForecastsController#search as JSON
+  Parameters: {"query"=>"60615"}
+Completed 200 OK in 5ms (Views: 3.4ms)
+
+
+Started GET "/api/v1/search?query=60615" for 127.0.0.1 at 2017-08-21 21:22:37 -0500
+Processing by Api::V1::ForecastsController#search as JSON
+  Parameters: {"query"=>"60615"}
+Completed 200 OK in 5ms (Views: 2.8ms)
+
+
+Started GET "/api/v1/search?query=" for 127.0.0.1 at 2017-08-21 21:24:15 -0500
+Processing by Api::V1::ForecastsController#search as JSON
+  Parameters: {"query"=>""}
+Completed 200 OK in 217ms (Views: 0.3ms)
+
+
+Started GET "/api/v1/search?query=" for 127.0.0.1 at 2017-08-21 21:24:35 -0500
+Processing by Api::V1::ForecastsController#search as JSON
+  Parameters: {"query"=>""}
+Completed 200 OK in 3ms (Views: 0.3ms)
+
+
+Started GET "/api/v1/search?query=60615" for 127.0.0.1 at 2017-08-21 21:24:41 -0500
+Processing by Api::V1::ForecastsController#search as JSON
+  Parameters: {"query"=>"60615"}
+Completed 200 OK in 9ms (Views: 5.1ms)
+
+
+Started GET "/api/v1/search?query=" for 127.0.0.1 at 2017-08-21 21:25:35 -0500
+Processing by Api::V1::ForecastsController#search as JSON
+  Parameters: {"query"=>""}
+Completed 200 OK in 5ms (Views: 1.0ms)
+
+
+Started GET "/api/v1/search?query=60615" for 127.0.0.1 at 2017-08-21 21:25:40 -0500
+Processing by Api::V1::ForecastsController#search as JSON
+  Parameters: {"query"=>"60615"}
+Completed 200 OK in 9ms (Views: 2.4ms)
+
+

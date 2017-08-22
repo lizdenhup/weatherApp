@@ -2,15 +2,17 @@ import React, { Component } from 'react'
 import fetch from 'isomorphic-fetch'
 import logo from './logo.svg';
 import './styles/spin.css';
+import Modal from 'react-modal';
 
 class Search extends Component { 
-constructor() {
-    super();
+constructor(props) {
+    super(props);
 
     this.state = {
         zipcode: '',
         forecast: '',
         isLoading: false, 
+        modalIsOpen: false, 
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -38,14 +40,31 @@ handleSubmit(event) {
         this.setState({ 
             forecast: forecastByZip,
             isLoading: false, 
+            modalIsOpen: true, 
         })
+    //open modal with the forecast for next three days
     })
     .catch(err => {
         throw new Error(err)
     })
 }
 
+openModal = () => this.setState({modalIsOpen: true})
+closeModal = () => 
+this.setState({
+    modalIsOpen: false,
+    zipcode: "",
+    forecast: "",
+})
+
 render() { 
+    const modalStyle = {
+        overlay: {
+          "position": "absolute",
+          "overflow": "auto",
+          "minHeight": "825px",
+        }
+    }  
     if (this.state.isLoading) {
     return (
         <div className="uk-position-center">
@@ -66,9 +85,14 @@ render() {
                 />
                 <button className="uk-button uk-button-default" type="submit">Check the weather</button>
                 </form>
-            <div>
-                {this.state.zipcode}
-            </div>
+                <Modal
+                    isOpen={this.state.modalIsOpen}
+                    contentLabel="Modal"
+                    onRequestClose={this.closeModal}
+                    style={modalStyle}>
+                    Hello I am a modal
+                    <button type="button" className="uk-button uk-margin-top uk-margin-right uk-button-secondary uk-position-top-right" onClick={this.closeModal}>X</button>
+                </Modal> 
         </div> 
     )}}
 }
