@@ -28,7 +28,7 @@ handleChange(event) {
 handleSubmit(event) {
     event.preventDefault(); 
     this.setState({ isLoading: true })
-    return fetch(`/api/v1/search?query=${this.state.zipcode}`, {
+    fetch(`/api/v1/search?query=${this.state.zipcode}`, {
     method: 'GET',
     headers: {
         "Accept": "application/json"
@@ -42,7 +42,6 @@ handleSubmit(event) {
             isLoading: false, 
             modalIsOpen: true, 
         })
-    //open modal with the forecast for next three days
     })
     .catch(err => {
         throw new Error(err)
@@ -70,7 +69,21 @@ render() {
         <div className="uk-position-center">
             <img src={logo} alt="React logo" className="App-logo" />
         </div> 
-    )} else {
+    )} else if (this.state.forecast !== "" && this.state.zipcode !== "") {
+        var someVar = this.state.forecast.response.version 
+        var someForecast = this.state.forecast.forecast.txt_forecast.date
+        return (
+        <Modal
+            isOpen={this.state.modalIsOpen}
+            contentLabel="Modal"
+            onRequestClose={this.closeModal}
+            style={modalStyle}>
+            <p>{someVar}</p>
+            <p>Forecast: {someForecast} </p> 
+            <button type="button" className="uk-button uk-margin-top uk-margin-right uk-button-secondary uk-position-top-right" onClick={this.closeModal}>X</button>
+        </Modal> 
+        )
+    } else {
         return (
         <div className="uk-position-center">
             <p>Enter a zip code to check that area's weather conditions</p>
@@ -85,14 +98,6 @@ render() {
                 />
                 <button className="uk-button uk-button-default" type="submit">Check the weather</button>
                 </form>
-                <Modal
-                    isOpen={this.state.modalIsOpen}
-                    contentLabel="Modal"
-                    onRequestClose={this.closeModal}
-                    style={modalStyle}>
-                    Hello I am a modal
-                    <button type="button" className="uk-button uk-margin-top uk-margin-right uk-button-secondary uk-position-top-right" onClick={this.closeModal}>X</button>
-                </Modal> 
         </div> 
     )}}
 }
