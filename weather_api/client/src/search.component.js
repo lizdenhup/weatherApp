@@ -3,7 +3,8 @@ import fetch from 'isomorphic-fetch'
 import logo from './logo.svg';
 import './styles/spin.css';
 import Modal from 'react-modal';
-
+//refactor outline:
+// to do: extract the view component for the actual forecast out of the search component
 class Search extends Component { 
 constructor(props) {
     super(props);

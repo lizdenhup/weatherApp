@@ -1582,3 +1582,38 @@ Processing by Api::V1::ForecastsController#search as JSON
 Completed 200 OK in 240ms (Views: 0.7ms)
 
 
+Started GET "/api/v1/search?query=k" for 127.0.0.1 at 2017-08-22 10:50:07 -0500
+Processing by Api::V1::ForecastsController#search as JSON
+  Parameters: {"query"=>"k"}
+Completed 200 OK in 668ms (Views: 0.4ms)
+
+
+Started GET "/api/v1/search?query=323242343234" for 127.0.0.1 at 2017-08-22 10:50:13 -0500
+Processing by Api::V1::ForecastsController#search as JSON
+  Parameters: {"query"=>"323242343234"}
+Completed 200 OK in 174ms (Views: 0.4ms)
+
+
+Started GET "/api/v1/search?query=60637" for ::1 at 2017-08-22 15:32:45 -0500
+Processing by Api::V1::ForecastsController#search as */*
+  Parameters: {"query"=>"60637"}
+Completed 500 Internal Server Error in 853ms
+
+
+  
+NameError (undefined local variable or method `response' for #<ForecastService:0x007fbe7f700540>):
+  
+app/services/forecast_service.rb:42:in `get_forecast'
+app/controllers/api/v1/forecasts_controller.rb:4:in `search'
+Started GET "/api/v1/search?query=60615" for ::1 at 2017-08-22 15:34:43 -0500
+Processing by Api::V1::ForecastsController#search as */*
+  Parameters: {"query"=>"60615"}
+Completed 200 OK in 259ms (Views: 3.3ms)
+
+
+Started GET "/api/v1/search?query=60615" for ::1 at 2017-08-22 15:34:56 -0500
+Processing by Api::V1::ForecastsController#search as */*
+  Parameters: {"query"=>"60615"}
+Completed 200 OK in 4ms (Views: 2.5ms)
+
+
