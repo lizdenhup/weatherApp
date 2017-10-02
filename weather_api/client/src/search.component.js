@@ -5,6 +5,9 @@ import './styles/spin.css';
 import Modal from 'react-modal';
 //refactor outline:
 // to do: extract the view component for the actual forecast out of the search component
+//use a regex for input validation so valid city names aren't accepted as input
+//make a forecast container component with three forecast day components within it
+//and pass the forecast state down as props
 class Search extends Component { 
 constructor(props) {
     super(props);
